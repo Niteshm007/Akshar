@@ -1,0 +1,64 @@
+/* Center the RangeScore container */
+.RangeScore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Container styles for the text */
+.RC-Cont p {
+    font-size: 18px;
+}
+
+.RC-Cont h2 {
+    font-size: 50px;
+}
+
+/* Progress bar container */
+.RC-rng {
+    width: 60%; /* Default width */
+    margin-top: 20px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #ff9800, #ff5722); // Light to darker orange
+  }
+
+  // Style for the score text
+.RangeScore .score {
+    color: orange;
+  }
+  
+  // Style for the progress bar color
+  .RangeScore .progress-bar {
+    background-color: orange; // Set color to orange
+    transition: width 2s ease; // Smooth transition for width changes
+  }
+  
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+    .RC-Cont p {
+        font-size: 16px; /* Smaller font for mobile */
+    }
+    .RC-Cont h2 {
+        font-size: 36px; /* Smaller heading for mobile */
+    }
+    .RC-rng {
+        width: 90%; /* Full width on mobile */
+    }
+}
+
+/* Slide-in animation for progress bar */
+.slide-animation .progress-bar {
+    animation: slideIn 2s ease;
+}
+
+@keyframes slideIn {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}

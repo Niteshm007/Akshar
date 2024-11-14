@@ -1,0 +1,145 @@
+.Navbar{
+  position: sticky; /* Makes the navbar stick to the top */
+  top: 0;          /* Position from the top */
+  z-index: 1000;  /* Ensures the navbar stays above other content */
+  background-color: white; /* Optional: add a background color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+}
+
+.navbar-nav .nav-link{
+    font-weight: bolder;
+    font-size: 1.5rem;
+    margin: 12px;
+}
+
+// .hover-dropdown:hover .dropdown-menu {
+//     display: block;
+//     color: orange !important; /* Show dropdown on hover */
+//   }
+  
+  .hover-dropdown .dropdown-menu {
+    display: none; /* Hide dropdown by default */
+  }
+  
+  .nav-link-hover {
+    position: relative; // Required for absolute positioning of the pseudo-element
+    padding-bottom: 5px; 
+    transition: color 0.3s ease; // Transition for text color change
+  }
+  
+  .nav-link-hover::after {
+    content: ''; // Creates the pseudo-element
+    position: absolute; // Position it relative to the link
+    left: 0; // Start from the left
+    bottom: 0; // Align to the bottom
+    width: 100%; // Full width
+    height: 3px; // Height of the underline
+    background-color: rgb(239, 127, 25); // Color of the underline
+    transform: scaleX(0); // Initially hidden (scaled down to 0)
+    transition: transform 0.4s ease; // Animate the scaling
+  }
+  
+  /* Navbar.scss */
+
+/* Ensure base link color and style */
+.nav-link-hover {
+  color: #000; /* Default link color (black or any color you want) */
+  transition: color 0.2s ease, transform 0.2s ease; /* Smooth transition for color and scale */
+}
+
+.nav-link-hover:hover { /* Set hover color, e.g., blue */
+  transform: scale(1.05); /* Scale effect on hover (optional) */
+}
+
+/* Navbar button styles */
+.nav-btn { /* Button background color */
+  color: white; /* Button text color */
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link-hover, .P-link-hover {
+  color: orangered; /* Or your desired color */
+  transition: color 0.3s ease; /* Add a smooth color transition if necessary */
+}
+
+.nav-link-hover:hover, .P-link-hover:hover {
+  color: orangered !important; /* Override any conflicting hover color */
+  background-color: transparent !important; /* Prevent background color change */
+}
+
+.navbar-nav .nav-item.dropdown:hover > .nav-link {
+  color: orangered; /* Ensure color stays black when hovering over dropdown link */
+}
+
+.navbar-nav .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: transparent; /* Prevent background color from changing on hover */
+  color: orangered !important; /* Prevent text color from changing */
+}
+
+.nav-btn:hover {/* Button hover background color */
+  transform: scale(1.05); /* Optional scale effect for the button */
+}
+
+/* For NavDropdown hover */
+.hover-dropdown:hover {
+  background-color: #f8f9fa; /* Light background on hover */
+}
+
+  .nav-link-hover:hover::after {
+    transform: scaleX(1); // Scale to full width on hover
+  }
+  
+  
+  /* Dropdown Menu Items */
+  .hover-dropdown .dropdown-menu {
+    background-color: white; /* Default background color */
+  }
+  
+  .hover-dropdown .dropdown-item {
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .nav-btn {
+    position: relative;
+    padding: 7px 10px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: 2px solid rgb(239, 127, 25);
+    border: none;
+    background-color: rgb(239, 127, 25);
+    color: white;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease-in-out;
+  }
+  
+  .nav-btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(3, 15, 39);
+    z-index: -1;
+    transition: width 0.4s ease-in-out;
+    border: none;
+  }
+  
+  .nav-btn:hover::before {
+    width: 100%;
+  }
+  
+  .nav-btn:hover {
+    color: white;
+  }
+
+
+
+  
+  

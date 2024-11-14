@@ -1,0 +1,117 @@
+.Why {
+  margin-top: 30px;
+}
+.w-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Full width on mobile */
+}
+
+.up-txt,
+.dn-txt,
+.wbtn {
+  width: 100%;
+}
+
+.dn-txt .row {
+  justify-content: center;
+  text-align: center;
+}
+
+.w-left p {
+  color: rgb(99, 93, 99);
+}
+
+.up-txt p {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.dn-txt h1 {
+  color: rgb(239, 127, 25);
+}
+
+.dn-txt p {
+  font-size: 20px;
+}
+
+.wh-btn {
+  position: relative;
+  padding: 10px 17rem;
+  border-radius: 30px;
+  border: 2px solid rgb(239, 127, 25);
+  background-color: white;
+  color: rgb(239, 127, 25);
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 0.4s ease-in-out;
+}
+
+.wh-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgb(243, 92, 39);
+  z-index: -1;
+  transition: width 0.4s ease-in-out;
+}
+
+.wh-btn:hover::before {
+  width: 100%;
+}
+
+.wh-btn:hover {
+  color: white;
+}
+
+/* Responsive for mobile devices */
+@media (max-width: 768px) {
+  .wh-btn {
+    padding: 10px 5rem; /* Reduced padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .wh-btn {
+    padding: 10px 8rem; /* Further reduced padding for extra small screens */
+  }
+}
+
+@media (min-width: 768px) {
+  .w-left {
+    text-align: left; /* Adjust this to left-align on larger screens */
+    align-items: flex-start;
+  }
+
+  .dn-txt .row {
+    text-align: left; /* Align left on larger screens */
+  }
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border-bottom: 15px solid rgb(243, 92, 39); /* Adjust color and thickness as needed */
+  border-right: 15px solid rgb(243, 92, 39); /* Adjust color and thickness as needed */
+  width: 50%; /* Adjust width as needed */
+  height: 60%; /* Adjust height as needed */
+}
+
+.image-container img {
+  height: 55vh !important;
+}

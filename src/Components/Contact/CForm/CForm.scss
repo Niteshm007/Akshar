@@ -1,0 +1,57 @@
+.cf-l {
+  border: 1px solid grey;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgba(22, 31, 53);
+  color: white;
+}
+
+.cf-l p {
+  font-size: 20px;
+}
+
+.cfd-cont h3 {
+  font-size: 25px;
+}
+
+.cfd-cont p {
+  margin: 0px;
+  color: gray;
+  font-size: 18px;
+}
+.cfd-cont a {
+  text-decoration: none;
+  color: rgb(239, 127, 25);
+  font-size: 20px;
+}
+.icn {
+  font-size: 23px;
+}
+
+.cf-r {
+  border: 1px solid grey;
+  padding: 25px;
+  border-radius: 20px;
+  background-color: rgba(22, 31, 53);
+  color: white;
+}
+
+.cf-frm-cont p{
+  font-size: 20px;
+  color: grey;
+}
+
+
+.cf-frm {
+  display: flex;
+  justify-content: center;
+}
+
+.cf-frm input {
+    width: 100%;
+}
+
+.cf-frm select{
+    width: 100%;
+}
+

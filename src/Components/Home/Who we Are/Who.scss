@@ -1,0 +1,90 @@
+.Who {
+  margin-top: 30px;
+
+  .who-l-txt {
+    font-size: 20px;
+    text-align: justify;
+    color: rgb(103, 103, 107);
+  }
+
+  .accordion-item {
+    margin-bottom: 10px;
+
+    // Apply border radius to the accordion item
+    border-radius: 20px; // Add border radius here
+    overflow: hidden; // Ensure the corners are rounded properly
+
+    &:first-of-type {
+      border-radius: 20px 20px 20px 20px; // Round top corners of the first item
+    }
+
+    &:last-of-type {
+      border-radius: 20px 20px 20px 20px; // Round bottom corners of the last item
+    }
+
+    .accordion-header {
+      background-color: orange; // Change background color to orange
+    }
+
+    .accordion-button {
+      color: white; // Optional: Change text color for better contrast
+      background-color: orange; // Ensure button matches the heading
+      border: none; // Remove border for a cleaner look
+
+      &.collapsed {
+        background-color: darkorange; // A slightly darker color when collapsed
+      }
+    }
+
+    .accordion-collapse {
+      background-color: white; // Change background color to white
+      border: 1px solid orange; // Optional: Add border for separation
+    }
+  }
+
+  .wl-btn {
+    position: relative;
+    padding: 10px 17rem;
+    border-radius: 30px;
+    border: 2px solid rgb(239, 127, 25);
+    background-color: white;
+    color: rgb(239, 127, 25);
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease-in-out;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background-color: rgb(243, 92, 39);
+      z-index: -1;
+      transition: width 0.4s ease-in-out;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  /* Responsive for mobile devices */
+  @media (max-width: 768px) {
+    .wl-btn {
+      padding: 10px 5rem; /* Reduced padding for smaller screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .wl-btn {
+      padding: 10px 8rem; /* Further reduced padding for extra small screens */
+    }
+  }
+}
