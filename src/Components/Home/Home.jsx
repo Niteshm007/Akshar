@@ -15,7 +15,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="Home">
+    <div className="Home Ovr-hd m-tb">
       <div className="row">
         <div className="carasol">
           <Carasoul/>

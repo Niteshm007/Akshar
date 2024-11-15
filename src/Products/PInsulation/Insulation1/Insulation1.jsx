@@ -1,59 +1,82 @@
 import React, { useEffect } from "react";
+import { motion } from "framer-motion"; // Import framer-motion for animations
 import "./Insulation.scss";
 import PEFilm1 from "../../../assets/PEFilm1.png";
 import PEFilm2 from "../../../assets/PEFilm2.png";
 import Tick from "../../../assets/TickLogo.png";
+
 export default function Insulation1() {
   useEffect(() => {
     // Smoothly scroll to the top of the page
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8 } },
+  };
+
+  const slideIn = {
+    hidden: { x: -100, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8 } },
+  };
+
+  const stagger = {
+    hidden: {},
+    visible: {
+      transition: { staggerChildren: 0.3 },
+    },
+  };
+
   return (
-    <div className="Insulation1">
+    <div className="Insulation1 m-tb">
       <div className="mnins1-br">
         <div className="inner-ply">
-          {/* Removed motion effect from header */}
-          <h1>PE Film Laminated Aluminium Foil</h1>
+          <motion.h1 variants={fadeIn} initial="hidden" animate="visible">
+            PE Film Laminated Aluminium Foil
+          </motion.h1>
         </div>
       </div>
       <div className="container m-t">
         <div className="row">
           <div className="main-cont">
             <div className="hd">
-              {/* Removed motion effect from subheader */}
-              <h3>PE FILM LAMINETED ALUMINIUM FOIL ( AL+PE )</h3>
+              <motion.h4 variants={fadeIn} initial="hidden" animate="visible">
+              <h3>
+                PE FILM LAMINATED ALUMINIUM FOIL ( AL+PE )
+              </h3>
+              </motion.h4>
             </div>
 
             <div className="mn-cont">
-              <p>
+              <motion.p variants={fadeIn} initial="hidden" animate="visible">
                 At <span>Foilam Global</span> we offer a wide-ranging range of
                 Industrial PE Laminated Aluminium Foil and Aluminium Foil
-                Laminated Materials,, which is widely insisted by many
-                industries and printing company owing to their greater quality
-                as below.
-              </p>
+                Laminated Materials, which is widely insisted by many industries
+                and printing companies owing to their greater quality as below.
+              </motion.p>
             </div>
 
             <div className="mn-img">
-              <div className="row">
-                <div className="col-md-6">
-                  {/* Removed motion effect from image */}
+              <motion.div className="row" variants={stagger} initial="hidden" animate="visible">
+                <motion.div className="col-md-6" variants={slideIn}>
                   <div className="mn-im">
                     <img src={PEFilm1} alt="" className="img-fluid" />
                   </div>
-                </div>
-                <div className="col-md-6">
-                  {/* Removed motion effect from image */}
+                </motion.div>
+                <motion.div className="col-md-6" variants={slideIn}>
                   <div className="mn-im">
                     <img src={PEFilm2} alt="" className="img-fluid" />
                   </div>
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
 
             <div className="prd-desc m-t">
-              {/* Removed motion effect from the list items */}
-              <h4>PolyFilm Laminated Al Foil Application:</h4>
+              <motion.h4 variants={fadeIn} initial="hidden" animate="visible">
+                PolyFilm Laminated Al Foil Application:
+              </motion.h4>
               <div className="prd-dsc d-flex">
                 <div className="prd-lg">
                   <img src={Tick} alt="" />
@@ -242,91 +265,97 @@ export default function Insulation1() {
             </div>
 
             <div className="mtr-tbl mt-3">
-              <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+              <motion.table
+                className="table table-bordered table-responsive"
+                variants={fadeIn}
+                initial="hidden"
+                animate="visible"
+              >
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">PROPERTIES</th>
-                    <th className="bg-dark text-white">UNIT</th>
-                    <th className="bg-dark text-white">TYPICAL VALUE</th>
+                    <th className="text-white hd-clr align-middle">PROPERTIES</th>
+                    <th className="text-white hd-clr align-middle">UNIT</th>
+                    <th className="text-white hd-clr align-middle">TYPICAL VALUE</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td className="align-middle">Thickness</td>
-                    <td className="">micron</td>
-                    <td className="">
-                      12 for AL foil <br /> 20 for LDPE
-                    </td>
+                    <td>micron</td>
+                    <td>12 for AL foil <br /> 20 for LDPE</td>
                   </tr>
                   <tr>
-                    <td className="">Density</td>
-                    <td className="">gr/cm3</td>
-                    <td className="">2.71 for AL foil 0.92 for PE</td>
+                    <td>Density</td>
+                    <td>gr/cm3</td>
+                    <td>2.71 for AL foil 0.92 for PE</td>
                   </tr>
                   <tr>
-                    <td className="">Weight</td>
-                    <td className="">grs/sqm</td>
-                    <td className="">50.92</td>
+                    <td>Weight</td>
+                    <td>grs/sqm</td>
+                    <td>50.92</td>
                   </tr>
                   <tr>
-                    <td className="">Yield</td>
-                    <td className="">sqm/Kg</td>
-                    <td className="">19.638</td>
+                    <td>Yield</td>
+                    <td>sqm/Kg</td>
+                    <td>19.638</td>
                   </tr>
                   <tr>
-                    <td className="">Reflectivity</td>
-                    <td className="">%</td>
-                    <td className="">95 ~ 97</td>
+                    <td>Reflectivity</td>
+                    <td>%</td>
+                    <td>95 ~ 97</td>
                   </tr>
                   <tr>
-                    <td className="">Emissivity</td>
-                    <td className="">%</td>
-                    <td className="">0.03 ~ 0.05</td>
+                    <td>Emissivity</td>
+                    <td>%</td>
+                    <td>0.03 ~ 0.05</td>
                   </tr>
                   <tr>
-                    <td className="">Flammability</td>
-                    <td className="">-</td>
-                    <td className="">nonflammable</td>
+                    <td>Flammability</td>
+                    <td>-</td>
+                    <td>nonflammable</td>
                   </tr>
                   <tr>
-                    <td className="">Elongation</td>
-                    <td className="">%</td>
-                    <td className="">6</td>
+                    <td>Elongation</td>
+                    <td>%</td>
+                    <td>6</td>
                   </tr>
                   <tr>
-                    <td className="">Lamination Temperature</td>
-                    <td className="">C</td>
-                    <td className="">200 ~ 250</td>
+                    <td>Lamination Temperature</td>
+                    <td>C</td>
+                    <td>200 ~ 250</td>
                   </tr>
                   <tr>
-                    <td className="">Lamination Pressure</td>
-                    <td className="">kg/cm2</td>
-                    <td className="">8</td>
+                    <td>Lamination Pressure</td>
+                    <td>kg/cm2</td>
+                    <td>8</td>
                   </tr>
                 </tbody>
-              </table>
+              </motion.table>
             </div>
 
             <div className="mtr-tbl2">
-              <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+              <motion.table
+                className="table table-bordered table-responsive"
+                variants={fadeIn}
+                initial="hidden"
+                animate="visible"
+              >
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">Remarks</th>
+                    <th className="text-white hd-clr align-middle">Remarks</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <td className="">
-                      -Core ID : 76mm (3inch) Standard <br />
-                      -length : 5,000mtrs, Other lengths available On request{" "}
-                      <br />
-                      -Thickness Tolerance : +/-7% Maximum <br />
-                      -Width : Up to 1520mm
+                      -Core ID: 76mm (3inch) Standard <br />
+                      -length: 5,000mtrs, Other lengths available On request <br />
+                      -Thickness Tolerance: +/-7% Maximum <br />
+                      -Width: Up to 1520mm
                     </td>
                   </tr>
-                  <tr></tr>
                 </tbody>
-              </table>
+              </motion.table>
             </div>
           </div>
         </div>

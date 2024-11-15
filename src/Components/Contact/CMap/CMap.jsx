@@ -33,68 +33,37 @@ export default function CMap() {
                   the optimum choice. Give us a call on below numbers:
                 </p>
               </div>
+              <div className="row"></div>
               <div className="row">
                 <div className="col-md-6">
-                <div className="cmr-cont">
-                  <div className="crd-br d-flex">
-                    <div className="logo-br">
-                      <div className="logo-inr">
-                        <FaPhoneFlip className="lg-icon" />
+                  <div className="cmr-cont">
+                    <div className="crd-br d-flex">
+                      <div className="logo-br">
+                        <div className="logo-inr">
+                          <FaPhoneFlip className="lg-icon" />
+                        </div>
+                      </div>
+                      <div className="cmd-cont">
+                        <h5>Admin</h5>
+                        <p className="uln">90234 07993</p>
                       </div>
                     </div>
-                    <div className="cmd-cont">
-                      <h5>Marketing</h5>
-                      <p className="uln">+91 90992 00227</p>
-                    </div>
                   </div>
-                </div>
                 </div>
                 <div className="col-md-6">
-                <div className="cmr-cont">
-                  <div className="crd-br d-flex">
-                    <div className="logo-br">
-                      <div className="logo-inr">
-                        <FaPhoneFlip className="lg-icon" />
+                  <div className="cmr-cont">
+                    <div className="crd-br d-flex">
+                      <div className="logo-br">
+                        <div className="logo-inr">
+                          <FaPhoneFlip className="lg-icon" />
+                        </div>
+                      </div>
+                      <div className="cmd-cont">
+                        <h5>Marketing</h5>
+                        <p className="uln">90234 07993</p>
                       </div>
                     </div>
-                    <div className="cmd-cont">
-                      <h5>Admin</h5>
-                      <p className="uln">+91 90992 00223</p>
-                    </div>
                   </div>
-                </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-md-6">
-                <div className="cmr-cont">
-                  <div className="crd-br d-flex">
-                    <div className="logo-br">
-                      <div className="logo-inr">
-                        <FaPhoneFlip className="lg-icon" />
-                      </div>
-                    </div>
-                    <div className="cmd-cont">
-                      <h5>Export</h5>
-                      <p className="uln">+91 90992 00228</p>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                <div className="col-md-6">
-                <div className="cmr-cont">
-                  <div className="crd-br d-flex">
-                    <div className="logo-br">
-                      <div className="logo-inr">
-                        <FaPhoneFlip className="lg-icon" />
-                      </div>
-                    </div>
-                    <div className="cmd-cont">
-                      <h5>Account</h5>
-                      <p className="uln">+91 90992 00337</p>
-                    </div>
-                  </div>
-                </div>
                 </div>
               </div>
             </div>

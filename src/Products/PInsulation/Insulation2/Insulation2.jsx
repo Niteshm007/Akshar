@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Insulation2.scss";
 import PEFIns1 from "../../../assets/PEFIns1.png";
 import PEFIns2 from "../../../assets/PEFIns2.png";
 import Tick from "../../../assets/TickLogo.png";
 
 export default function Insulation2() {
+  useEffect(() => {
+    // Smoothly scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
-    <div className="Insulation2">
+    <div className="Insulation2 m-tb">
       <div className="mnIns2-br">
         <div className="inner-ply">
           <h1>PE LAMINATED METALIZED FILM</h1>
@@ -277,12 +281,12 @@ export default function Insulation2() {
 
             <div className="mtr-tbl">
               <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">
+                    <th className="text-white hd-clr align-middle">
                       Std Foil Gauge Options
                     </th>
-                    <th className="bg-dark text-white">Tolerance ( +/-8% )</th>
+                    <th className="text-white hd-clr align-middle">Tolerance ( +/-8% )</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -309,12 +313,12 @@ export default function Insulation2() {
             </div>
             <div className="mtr-tbl2">
               <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">
+                    <th className="text-white hd-clr align-middle">
                       Standard Thickness (micron)
                     </th>
-                    <th className="bg-dark text-white">Tolerance (± 10%)</th>
+                    <th className="text-white hd-clr align-middle">Tolerance (± 10%)</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -342,12 +346,12 @@ export default function Insulation2() {
 
             <div className="mtr-tbl3">
               <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">
+                    <th className="text-white hd-clr align-middle">
                       Standard Thickness (micron)
                     </th>
-                    <th className="bg-dark text-white">Tolerance (± 15%)</th>
+                    <th className="text-white hd-clr align-middle">Tolerance (± 15%)</th>
                   </tr>
                 </thead>
                 <tbody>

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { motion } from 'framer-motion';
 import "./Ply.scss";
 import Plyimg from "../../assets/Ply .png";
 import FourPly from "../../assets/4Ply.png";
@@ -8,20 +7,14 @@ import { Link } from "react-router-dom";
 
 export default function Ply() {
   useEffect(() => {
-    // Smoothly scroll to the top of the page
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <div className="Ply container m-t">
+    <div className="Ply container m-t m-tb">
       <div className="row">
         {/* Left Content */}
-        <motion.div
-          className="col-md-6"
-          initial={{ opacity: 0, x: -200 }}  // Slide from the left
-          animate={{ opacity: 1, x: 0 }}     // Final position
-          transition={{ duration: 0.8 }}
-        >
+        <div className="col-md-6">
           <div className="brf">
             <h1 align="center">
               Brief About <br /> <b> Ply Laminated Foil </b>
@@ -51,30 +44,20 @@ export default function Ply() {
               efficiency.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Right Content */}
-        <motion.div
-          className="col-md-6 justify-content-center align-items-center"
-          initial={{ opacity: 0, x: 200 }}   // Slide from the right
-          animate={{ opacity: 1, x: 0 }}      // Final position
-          transition={{ duration: 0.8 }}
-        >
+        <div className="col-md-6 justify-content-center align-items-center">
           <div className="brf-img">
             <img src={Plyimg} alt="" className="img-fluid" />
           </div>
-        </motion.div>
+        </div>
       </div>
 
       <div className="row">
         <div className="product-typ row m-t" align="center">
           {/* First Card */}
-          <motion.div
-            className="col-md-4"
-            initial={{ opacity: 0, x: -200 }}  // Slide from left for the card
-            animate={{ opacity: 1, x: 0 }}     // Final position
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
+          <div className="col-md-4">
             <div className="card" style={{ width: "20rem" }}>
               <img src={Plyimg} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -89,15 +72,10 @@ export default function Ply() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Second Card */}
-          <motion.div
-            className="col-md-4"
-            initial={{ opacity: 0, x: -200 }}  // Slide from left for the card
-            animate={{ opacity: 1, x: 0 }}     // Final position
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
+          <div className="col-md-4">
             <div className="card" style={{ width: "20rem" }}>
               <img src={FourPly} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -112,15 +90,10 @@ export default function Ply() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Third Card */}
-          <motion.div
-            className="col-md-4"
-            initial={{ opacity: 0, x: -200 }}  // Slide from left for the card
-            animate={{ opacity: 1, x: 0 }}     // Final position
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
+          <div className="col-md-4">
             <div className="card" style={{ width: "20rem" }}>
               <img src={MultiPly} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -135,7 +108,7 @@ export default function Ply() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

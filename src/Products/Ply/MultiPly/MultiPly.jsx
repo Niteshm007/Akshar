@@ -28,7 +28,7 @@ export default function Multiply() {
     };
 
     return (
-        <div className="MultiPly">
+        <div className="MultiPly m-tb">
             <motion.div 
                 className="mn-mltbr"
                 variants={fadeIn} 
@@ -120,21 +120,21 @@ export default function Multiply() {
                         {/* Table */}
                         <motion.div className="mtr-tbl mt-3" variants={fadeIn} initial="hidden" animate="visible">
                             <table className="table table-bordered table-responsive">
-                                <thead className="bg-dark text-white">
+                                <thead className="text-white hd-clr align-middle">
                                     <tr>
-                                        <th className="bg-dark text-white align-middle">
+                                        <th className="text-white hd-clr align-middle align-middle">
                                             Std Foil Gauge Options
                                         </th>
-                                        <th className="bg-dark text-white align-middle">
+                                        <th className="text-white hd-clr align-middle align-middle">
                                             PET <br /> gsm <br />
                                             +/-5%
                                         </th>
-                                        <th className="bg-dark text-white align-middle">
+                                        <th className="text-white hd-clr align-middle align-middle">
                                             Foil <br />
                                             gsm <br />
                                             +/-8%
                                         </th>
-                                        <th className="bg-dark text-white align-middle">
+                                        <th className="text-white hd-clr align-middle align-middle">
                                             LDPE <br />
                                             gsm <br />
                                             +/-5%
@@ -173,9 +173,9 @@ export default function Multiply() {
                         {/* Second Table */}
                         <motion.div className="mtr-tbl2 mt-3" variants={fadeIn} initial="hidden" animate="visible">
                             <table className="table table-bordered table-responsive">
-                                <thead className="bg-dark text-white">
+                                <thead className="text-white hd-clr align-middle">
                                     <tr>
-                                        <th className="bg-dark text-white" colSpan="2">
+                                        <th className="text-white hd-clr align-middle" colSpan="2">
                                             For all above structures:
                                         </th>
                                     </tr>
@@ -265,29 +265,29 @@ export default function Multiply() {
                         {/* Third Table */}
                         <motion.div className="mtr-tbl3 mt-3" variants={fadeIn} initial="hidden" animate="visible">
                             <table className="table table-bordered table-responsive">
-                                <thead className="bg-dark text-white">
+                                <thead className="text-white hd-clr align-middle">
                                     <tr>
-                                        <th className="bg-dark text-white">
+                                        <th className="text-white hd-clr align-middle">
                                             Structure <br />
                                             XX gsm Paper / XX micron LDPE/ <br />
                                             XX micron Foil/ XX micron LDPE
                                         </th>
-                                        <th className="bg-dark text-white">
+                                        <th className="text-white hd-clr align-middle">
                                             Paper <br />
                                             gsm <br />
                                             +/-5%
                                         </th>
-                                        <th className="bg-dark text-white">
+                                        <th className="text-white hd-clr align-middle">
                                             LDPE <br />
                                             gsm <br />
                                             +/-5%
                                         </th>
-                                        <th className="bg-dark text-white">
+                                        <th className="text-white hd-clr align-middle">
                                             Foil <br />
                                             gsm <br />
                                             +/-8%
                                         </th>
-                                        <th className="bg-dark text-white">
+                                        <th className="text-white hd-clr align-middle">
                                             LDPE <br />
                                             gsm <br />
                                             +/-5%
@@ -330,9 +330,9 @@ export default function Multiply() {
                         {/* Fourth Table */}
                         <motion.div className="mtr-tbl4 mt-3" variants={fadeIn} initial="hidden" animate="visible">
                             <table className="table table-bordered table-responsive">
-                                <thead className="bg-dark text-white">
+                                <thead className="text-white hd-clr align-middle">
                                     <tr>
-                                        <th className="bg-dark text-white" colSpan="2">
+                                        <th className="text-white hd-clr align-middle" colSpan="2">
                                             For all above structures:
                                         </th>
                                     </tr>

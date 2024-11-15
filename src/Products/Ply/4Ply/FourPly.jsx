@@ -33,7 +33,7 @@ export default function FourPly() {
   };
 
   return (
-    <div className="FourPly">
+    <div className="FourPly m-tb">
       <div className="mn-frbr">
         <div className="inner-ply">
           <motion.h1

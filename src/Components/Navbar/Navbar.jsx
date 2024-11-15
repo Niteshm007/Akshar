@@ -61,7 +61,7 @@ export default function ResponsiveNavbar() {
                 <NavDropdown title="Products" id="collasible-nav-dropdown" className="hover-dropdown nav-link-hover">
                   <NavDropdown.Item as={Link} to="/products/Ply" className="P-link-hover" onClick={handleNavLinkClick}>Ply Laminated Foil</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/products/Insulation" onClick={handleNavLinkClick}>Insulation Industries</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/products/Metalize" onClick={handleNavLinkClick}>Metalized Film Laminated Material</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/products/MetFilm" onClick={handleNavLinkClick}>Metalized Film Laminated Material</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/products/Barrier" onClick={handleNavLinkClick}>Barrier Film Insulation Material</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/products/Food" onClick={handleNavLinkClick}>Food & Baverages Industries</NavDropdown.Item>
                   <NavDropdown.Item as={Link} to="/products/PE" onClick={handleNavLinkClick}>PE Coated Paper</NavDropdown.Item>

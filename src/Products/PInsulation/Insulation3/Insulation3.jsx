@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Insulation3.scss";
 
 export default function Insulation3() {
+  useEffect(() => {
+    // Smoothly scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   return (
-    <div className="Insulation3">
+    <div className="Insulation3 m-tb">
       <div className="mnIns2-br">
         <div className="inner-ply">
           <h1>CUSTOMIZED LAMINATES</h1>

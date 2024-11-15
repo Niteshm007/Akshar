@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import "./CForm.scss"; // Import the relevant CSS for styling
-import { MdLocationPin } from "react-icons/md";
+import "./CForm.scss";
+import { MdLocationPin, MdOutlineEmail } from "react-icons/md";
 import { FaPhoneFlip } from "react-icons/fa6";
+import emailjs from "emailjs-com"; // Import EmailJS
+import { ToastContainer, toast } from "react-toastify"; // Import Toastify
+import "react-toastify/dist/ReactToastify.css"; // Import CSS for styling
 
 export default function CForm() {
-  // Form state to handle input values and error validation
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -12,45 +14,110 @@ export default function CForm() {
     email: "",
     companyName: "",
     product: "",
-    address: "",
+    message: "",
   });
 
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    email: "",
+    companyName: "",
+    product: "",
+    message: "",
+  });
 
-  // Handle input changes and reset error state when input changes
+  const [loading, setLoading] = useState(false); // State to track form submission status
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: "" });
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+
+    // Clear the error for the specific field when user starts typing
+    setErrors({
+      ...errors,
+      [name]: "", // Reset error for the specific field
+    });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = {};
+    let valid = true;
+    let errorMessages = {};
 
-    // Validation for required fields
+    // Validation checks
     Object.keys(formData).forEach((key) => {
-      if (!formData[key]) {
-        newErrors[key] = `${key} is required`;
+      const value = formData[key].trim();
+      if (!value) {
+        errorMessages[key] = `${
+          key.charAt(0).toUpperCase() + key.slice(1)
+        } is required.`;
+        valid = false;
+      } else {
+        errorMessages[key] = "";
       }
     });
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+    // Specific validation for email
+    if (formData.email && !/\S+@\S+\.\S+/.test(formData.email)) {
+      errorMessages.email = "Please enter a valid email address.";
+      valid = false;
+    }
+
+    if (!valid) {
+      setErrors(errorMessages);
       return;
     }
 
-    console.log("Form submitted successfully:", formData);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      email: "",
-      companyName: "",
-      product: "",
-      address: "",
-    });
-    setErrors({});
+    // Set loading state to true to show loader
+    setLoading(true);
+
+    // Prepare data for the EmailJS template
+    const templateParams = {
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      phone: formData.phone,
+      email: formData.email,
+      companyName: formData.companyName,
+      product: formData.product,
+      message: formData.message,
+    };
+
+    // Send the email using EmailJS
+    emailjs
+      .send(
+        "service_c3lt4lb", // Your EmailJS Service ID
+        "template_98xn03s", // Your EmailJS Template ID
+        templateParams,
+        "gdIU42i5qHH-naiRa" // Your EmailJS User ID
+      )
+      .then(
+        (response) => {
+          console.log("Email sent successfully", response);
+          toast.success("Form submitted successfully!"); // Show success toast
+          setFormData({
+            firstName: "",
+            lastName: "",
+            phone: "",
+            email: "",
+            companyName: "",
+            product: "",
+            message: "",
+          });
+          setErrors({});
+        },
+        (error) => {
+          console.log("Failed to send email", error);
+          toast.error("Something went wrong, please try again."); // Show error toast
+        }
+      )
+      .finally(() => {
+        // Hide loader after request is completed (either success or failure)
+        setLoading(false);
+      });
   };
 
   return (
@@ -71,26 +138,23 @@ export default function CForm() {
 
               <div className="cf-dn">
                 <div className="row">
-                  <div className="col-md-6 mt-4">
-                    <div className="cfd-cont">
-                      <h3>Factory Address</h3>
-                      <p>
-                        Plot No 22,23 Narnarayan Industrial Estate, Opp.
-                        Bentlay’s Company, Vill. Kubadthal Ahmedabad Indore
-                        Highway, Daskroi, Ahmedabad – 382430, Gujarat, INDIA
-                      </p>
-                      <a href="https://maps.app.goo.gl/ikYR29rPe6pZpNbMA">
+                  <div className="cfd-cont" align="center">
+                    <h3>Factory Address</h3>
+                    <p>
+                      Plot No 69 Vivekanand Industrial Park, Nr. Shivbhumi Ind.
+                      Park, Kubadthal, Ahmedabad Indore Highway, Ahmedabad -
+                      Gujarat - India - 382430
+                    </p>
+                  </div>
+                  <div className="cont" align="center">
+                    <span>
+                      <a
+                        href="https://maps.app.goo.gl/ikYR29rPe6pZpNbMA"
+                        target="_blank"
+                      >
                         <MdLocationPin className="icn" /> Find Us On Map
                       </a>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mt-4">
-                    <div className="cfd-cont">
-                      <h3>Admin</h3>
-                      <p>
-                        <FaPhoneFlip /> +91 90992 00223
-                      </p>
-                    </div>
+                    </span>
                   </div>
                 </div>
                 <div className="row">
@@ -104,35 +168,11 @@ export default function CForm() {
                   </div>
                   <div className="col-md-6 mt-4">
                     <div className="cfd-cont">
-                      <h3>Export</h3>
+                      <h3>Our Email</h3>
                       <p>
-                        <FaPhoneFlip /> +91 90992 00228
+                        <MdOutlineEmail /> foilamglobal@gmail.com
                       </p>
                     </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-md-6 mt-4">
-                    <div className="cfd-cont">
-                      <h3>Account</h3>
-                      <p>
-                        <FaPhoneFlip /> +91 90992 00337
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-md-6 mt-4">
-                    <div className="cfd-cont">
-                      <h3>Purchase</h3>
-                      <p>
-                        <FaPhoneFlip /> +91 90992 00338
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="cfd-cont mt-4">
-                    <h3>Our Email</h3>
-                    <p>foilamglobal@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -141,136 +181,160 @@ export default function CForm() {
 
           {/* Right column for contact form */}
           <div className="col-md-6 m-t">
-            <div className="cf-frm-cont" align="center">
-              <h3>Free Quotes</h3>
-              <p>
-                After we get some information from you, we’ll set up a time to
-                discuss your requirements in further detail.
-              </p>
-            </div>
-            <div className="cf-form">
-              <form onSubmit={handleSubmit}>
-                <div className="row">
-                  {/* First and Last Name */}
-                  <div className="col-md-6 mb-3">
-                    <input
-                      type="text"
-                      className={`form-control ${
-                        errors.firstName ? "is-invalid" : ""
-                      }`}
-                      name="firstName"
-                      placeholder="First Name"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                    />
-                    <div className="invalid-feedback">{errors.firstName}</div>
-                  </div>
-                  <div className="col-md-6 mb-3">
-                    <input
-                      type="text"
-                      className={`form-control ${
-                        errors.lastName ? "is-invalid" : ""
-                      }`}
-                      name="lastName"
-                      placeholder="Last Name"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                    />
-                    <div className="invalid-feedback">{errors.lastName}</div>
-                  </div>
+            <div className="cf-dwn">
+              <div className="cf-cont" align="center">
+                <div className="cf-hd">
+                  <h3>Free Quote</h3>
                 </div>
 
-                <div className="row">
-                  {/* Phone and Email */}
-                  <div className="col-md-6 mb-3">
-                    <input
-                      type="tel"
-                      className={`form-control ${
-                        errors.phone ? "is-invalid" : ""
-                      }`}
-                      name="phone"
-                      placeholder="Phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                    />
-                    <div className="invalid-feedback">{errors.phone}</div>
-                  </div>
-                  <div className="col-md-6 mb-3">
-                    <input
-                      type="email"
-                      className={`form-control ${
-                        errors.email ? "is-invalid" : ""
-                      }`}
-                      name="email"
-                      placeholder="Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                    />
-                    <div className="invalid-feedback">{errors.email}</div>
-                  </div>
+                <div className="cf-txt">
+                  <p>
+                    After we get some information from you, we’ll set up a time
+                    to discuss your requirements in further detail.
+                  </p>
                 </div>
-
-                <div className="row">
-                  {/* Company Name and Product */}
-                  <div className="col-md-6 mb-3">
-                    <input
-                      type="text"
-                      className={`form-control ${
-                        errors.companyName ? "is-invalid" : ""
-                      }`}
-                      name="companyName"
-                      placeholder="Company Name"
-                      value={formData.companyName}
-                      onChange={handleChange}
-                    />
-                    <div className="invalid-feedback">{errors.companyName}</div>
+              </div>
+              <div className="cf-form">
+                <form onSubmit={handleSubmit}>
+                  {/* Form fields */}
+                  <div className="form-row row">
+                    <div className="form-group col-md-6 mt-3">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="First Name"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                      />
+                      {errors.firstName && (
+                        <small className="text-danger">
+                          {errors.firstName}
+                        </small>
+                      )}
+                    </div>
+                    <div className="form-group col-md-6 mt-3">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Last Name"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                      />
+                      {errors.lastName && (
+                        <small className="text-danger">{errors.lastName}</small>
+                      )}
+                    </div>
                   </div>
-                  <div className="col-md-6 mb-3">
-                    <select
-                      className={`form-control ${
-                        errors.product ? "is-invalid" : ""
-                      }`}
-                      name="product"
-                      value={formData.product}
-                      onChange={handleChange}
-                    >
-                      <option value="" disabled>
-                        Select Product
-                      </option>
-                      <option value="product1">Product 1</option>
-                      <option value="product2">Product 2</option>
-                      <option value="product3">Product 3</option>
-                    </select>
-                    <div className="invalid-feedback">{errors.product}</div>
+
+                  <div className="form-row row">
+                    <div className="form-group col-md-6 mt-3">
+                      <input
+                        type="tel"
+                        className="form-control"
+                        placeholder="Phone Number"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                      />
+                      {errors.phone && (
+                        <small className="text-danger">{errors.phone}</small>
+                      )}
+                    </div>
+                    <div className="form-group col-md-6 mt-3">
+                      <input
+                        type="email"
+                        className="form-control"
+                        placeholder="Email Address"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                      />
+                      {errors.email && (
+                        <small className="text-danger">{errors.email}</small>
+                      )}
+                    </div>
                   </div>
-                </div>
 
-                {/* Address */}
-                <div className="mb-3">
-                  <textarea
-                    className={`form-control ${
-                      errors.address ? "is-invalid" : ""
-                    }`}
-                    name="address"
-                    placeholder="Address"
-                    rows="8"
-                    value={formData.address}
-                    onChange={handleChange}
-                  ></textarea>
-                  <div className="invalid-feedback">{errors.address}</div>
-                </div>
+                  <div className="form-row row">
+                    <div className="form-group col-md-6 mt-3">
+                      <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Company Name"
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleChange}
+                      />
+                      {errors.companyName && (
+                        <small className="text-danger">
+                          {errors.companyName}
+                        </small>
+                      )}
+                    </div>
+                    <div className="form-group col-md-6 mt-3">
+                      <select
+                        className="form-control"
+                        name="product"
+                        value={formData.product}
+                        onChange={handleChange}
+                      >
+                        <option value="">Select Product</option>
+                        <option value="product1">Ply Laminated Foil</option>
+                        <option value="product2">Insulation Industries</option>
+                        <option value="product3">
+                          Metalized Film Laminated Material
+                        </option>
+                        <option value="product4">
+                          Barrier Film Insulation Material
+                        </option>
+                        <option value="product5">
+                          Food & Baverages Industries
+                        </option>
+                        <option value="product6">PE Coated Paper</option>
+                      </select>
+                      {errors.product && (
+                        <small className="text-danger">{errors.product}</small>
+                      )}
+                    </div>
+                  </div>
 
-                {/* Submit Button */}
-                <div className="col-12" align="Center">
-                    <button className="fbtn" type="submit">
-                      Submit
+                  <div className="form-group mt-3">
+                    <textarea
+                      className="form-control"
+                      rows="4"
+                      placeholder="Your Message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                    ></textarea>
+                    {errors.message && (
+                      <small className="text-danger">{errors.message}</small>
+                    )}
+                  </div>
+
+                  <div className="col-12 mt-3" align="center">
+                    <button className="fbtn" type="submit" disabled={loading}>
+                      {loading ? "Sending..." : "Submit"}
                     </button>
                   </div>
-              </form>
+                </form>
+
+                {/* Loader Bar */}
+                {loading && (
+                  <div className="loader-container">
+                    <div className="loader-bar"></div>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* ToastContainer to display the toast notifications */}
+      <ToastContainer />
     </div>
   );
 }

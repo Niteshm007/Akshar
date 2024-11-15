@@ -12,7 +12,7 @@ export default function About() {
   }, []);
 
   return (
-    <div className='About'>
+    <div className='About Ovr-hd m-tb'>
       <div className="row">
         <div className="col-ms-12">
           <div className="about-img">

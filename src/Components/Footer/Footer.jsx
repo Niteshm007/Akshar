@@ -11,7 +11,7 @@ export default function Footer() {
   const tasks1 = ["Insulation Material", "Coated Paper", "Woven Materials"];
 
   return (
-    <div className="Footer m-t">
+    <div className="Footer">
       <div className="container">
         <div className="row w-f">
           {/* About Us section */}
@@ -44,7 +44,7 @@ export default function Footer() {
                   {/* Link to PInsulation page */}
                 </li>
                 <li>
-                  <Link to="products/Metalize">Metalized Film Laminated Material</Link>{" "}
+                  <Link to="/products/MetFilm">Metalized Film Laminated Material</Link>{" "}
                   {/* Link to PInsulation page */}
                 </li>
                 <li>

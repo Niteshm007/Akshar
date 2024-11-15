@@ -60,6 +60,24 @@
 
 .cont span{
     color: rgb(239, 128, 27);
+    transition: font-size 0.3s ease, transform 0.3s ease;
+    font-size: 18px;
+}
+
+.cont span:hover{
+    font-size: 20px; 
+    transform: scale(1.1);
+}
+
+.cont a{
+    text-decoration: none;
+    color: inherit;
+    
+}
+
+.cont a:hover{
+    color: rgb(0, 175, 239);
+   
 }
 
 input, select, textarea{

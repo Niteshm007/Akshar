@@ -13,7 +13,7 @@ export default function PInsulation() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
   return (
-    <div className="PInsulation container">
+    <div className="PInsulation container m-t m-tb">
       <div className="row">
         {/* Left Content */}
         <motion.div

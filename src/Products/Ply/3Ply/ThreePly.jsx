@@ -5,12 +5,13 @@ import TriplePly from "../../../assets/TriplePly.png";
 import Tick from "../../../assets/TickLogo.png";
 
 export default function ThreePly() {
+  // Scrolls the page to the top when the component is mounted
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   return (
-    <div className="ThreePly">
+    <div className="ThreePly m-tb">
       <div className="mn-br">
         <div className="inner-ply">
           <h1>Triple Laminate for Packing</h1>
@@ -42,13 +43,17 @@ export default function ThreePly() {
               <div className="row">
                 <div className="col-md-6">
                   <div className="mn-im">
-                    <img src={Plyimg} alt="" className="img-fluid" />
+                    <img src={Plyimg} alt="Ply Image" className="img-fluid" />
                   </div>
                 </div>
                 <div className="col-md-6">
                   {/* Removed motion effect from image */}
                   <div className="mn-im">
-                    <img src={TriplePly} alt="" className="img-fluid" />
+                    <img
+                      src={TriplePly}
+                      alt="Triple Ply"
+                      className="img-fluid"
+                    />
                   </div>
                 </div>
               </div>
@@ -66,22 +71,22 @@ export default function ThreePly() {
 
             <div className="mtr-tbl">
               <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">
+                    <th className="text-white hd-clr align-middle">
                       Std Foil Gauge Options
                     </th>
-                    <th className="bg-dark text-white">Tolerance ( +/-8% )</th>
+                    <th className="text-white hd-clr align-middle">Tolerance ( +/-8% )</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="">0.009</td>
-                    <td className="">± 0.00072</td>
+                    <td>0.009</td>
+                    <td>± 0.00072</td>
                   </tr>
                   <tr>
-                    <td className="">0.012</td>
-                    <td className="">± 0.00096</td>
+                    <td>0.012</td>
+                    <td>± 0.00096</td>
                   </tr>
                 </tbody>
               </table>
@@ -97,22 +102,22 @@ export default function ThreePly() {
             </div>
             <div className="mtr-tbl2">
               <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">
+                    <th className="text-white hd-clr align-middle">
                       Standard Thickness (micron)
                     </th>
-                    <th className="bg-dark text-white">Tolerance (± 10%)</th>
+                    <th className="text-white hd-clr align-middle">Tolerance (± 10%)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="">10</td>
-                    <td className="">± 1</td>
+                    <td>10</td>
+                    <td>± 1</td>
                   </tr>
                   <tr>
-                    <td className="">12</td>
-                    <td className="">± 1.2</td>
+                    <td>12</td>
+                    <td>± 1.2</td>
                   </tr>
                 </tbody>
               </table>
@@ -129,26 +134,26 @@ export default function ThreePly() {
 
             <div className="mtr-tbl3">
               <table className="table table-bordered table-responsive">
-                <thead className="bg-dark text-white">
+                <thead className="text-white hd-clr align-middle">
                   <tr>
-                    <th className="bg-dark text-white">
+                    <th className="text-white hd-clr align-middle">
                       Standard Thickness (micron)
                     </th>
-                    <th className="bg-dark text-white">Tolerance (± 15%)</th>
+                    <th className="text-white hd-clr align-middle">Tolerance (± 15%)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="">37.5 (150 gauge)</td>
-                    <td className="">± 5.625</td>
+                    <td>37.5 (150 gauge)</td>
+                    <td>± 5.625</td>
                   </tr>
                   <tr>
-                    <td className="">25 (100 gauge)</td>
-                    <td className="">± 3.750</td>
+                    <td>25 (100 gauge)</td>
+                    <td>± 3.750</td>
                   </tr>
                   <tr>
-                    <td className="">45 (180 gauge)</td>
-                    <td className="">± 6.750</td>
+                    <td>45 (180 gauge)</td>
+                    <td>± 6.750</td>
                   </tr>
                 </tbody>
               </table>
@@ -159,7 +164,7 @@ export default function ThreePly() {
         <div className="prd-desc">
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>
@@ -173,7 +178,7 @@ export default function ThreePly() {
           {/* Repeat for other items */}
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>
@@ -184,7 +189,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>CONFIGURATION : un-printed 3 Ply available in the reel</p>
@@ -193,7 +198,7 @@ export default function ThreePly() {
 
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>
@@ -206,7 +211,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>CORE : Material options: (a) Plastic (b) Card board</p>
@@ -214,7 +219,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>Core ID : 76 mm or 70 mm ± 1 mm</p>
@@ -222,7 +227,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>
@@ -232,7 +237,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>REEL OUTER DIAMETER : 275 ± 5 mm maximum</p>
@@ -240,7 +245,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>REEL WANDER : Within ± 1 mm</p>
@@ -248,7 +253,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>REEL WIDTH : Minimum 40 mm ± 1 mm</p>
@@ -256,7 +261,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>JOINTS PER REEL : Maximum 2. Average less than 1.</p>
@@ -264,7 +269,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>
@@ -276,7 +281,7 @@ export default function ThreePly() {
           </div>
           <div className="prd-dsc d-flex">
             <div className="prd-lg">
-              <img src={Tick} alt="" />
+              <img src={Tick} alt="Tick Logo" />
             </div>
             <div className="prd-txt">
               <p>

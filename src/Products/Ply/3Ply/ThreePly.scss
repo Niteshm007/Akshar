@@ -24,7 +24,7 @@
 }
 
 .inner-ply h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center; /* Center the text within h1 */
     margin: 0; /* Remove default margin */
     color: #333; /* Set text color for better visibility */
@@ -36,7 +36,7 @@
 }
 
 .mn-cont p {
-    font-size: 20px;
+    font-size: 19px;
     text-align: justify;
 }
 
@@ -58,6 +58,26 @@
     border: 1px solid gray;
     padding: 5px;
 }
+
+
+.mtr-tbl, .mtr-tbl2, .mtr-tbl3, .mtr-tbl4{
+    border-radius: 30px;  // Apply 30px border radius
+    overflow: hidden;  // Ensure the border radius is applied correctly to the table corners
+  
+    table {
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+  
+    th, td {
+      border: 1px solid #ddd;
+    }
+  }
+  
+  .hd-clr{
+    background-color: rgb(245, 134, 52) !important;
+}
+  
 
 .prd-lg img{
     width: 30px;
