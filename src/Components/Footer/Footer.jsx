@@ -55,10 +55,9 @@ export default function Footer() {
                   <Link to="/products/Food">Food & Baverages Industries</Link>{" "}
                   {/* Link to PInsulation page */}
                 </li>
-                <li>
+                {/* <li>
                   <Link to="/products/PE">PE Coated Paper</Link>{" "}
-                  {/* Link to PInsulation page */}
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>
