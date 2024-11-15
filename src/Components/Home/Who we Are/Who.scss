@@ -23,24 +23,48 @@
     }
 
     .accordion-header {
-      background-color: orange; // Change background color to orange
+      background-color: white; // Default background color of the header (white)
+      color: black; // Default text color (black)
+      transition: background-color 0.3s ease, color 0.3s ease; // Smooth transition for hover effect
+
+      &:hover {
+        color: orange !important; // Change text color to orange when hovered
+      }
+
+      // When accordion is expanded (shown), change the background and text color
+      .accordion-button:not(.collapsed) {
+        background-color: orange; // Change background to orange when expanded
+        color: white; // Change text color to white when expanded
+      }
     }
 
     .accordion-button {
-      color: white; // Optional: Change text color for better contrast
-      background-color: orange; // Ensure button matches the heading
+      color: black; // Default text color (black)
+      background-color: rgb(138, 121, 121); // Default background color (white)
       border: none; // Remove border for a cleaner look
 
       &.collapsed {
-        background-color: darkorange; // A slightly darker color when collapsed
+        background-color: rgb(255, 255, 255); // Ensure button stays white when collapsed
+        color: black; // Keep text color black when collapsed
+      }
+
+      &.collapsed:hover{
+        color: rgb(245, 134, 52);
+      }
+
+      // When accordion is expanded (shown), button changes to orange background with white text
+      &:not(.collapsed) {
+        background-color: orange; // Change to orange when expanded
+        color: white; // Change text color to white when expanded
       }
     }
 
     .accordion-collapse {
-      background-color: white; // Change background color to white
+      background-color: white; // Change background color to white when collapsed
       border: 1px solid orange; // Optional: Add border for separation
     }
-  }
+}
+
 
   .wl-btn {
     position: relative;
