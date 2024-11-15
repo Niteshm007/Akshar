@@ -25,6 +25,8 @@ import Food3 from "./Products/Food/Food3/Food3";
 import Food4 from "./Products/Food/Food4/Food4";
 import Food5 from "./Products/Food/Food5/Food5";
 import PE from "./Products/PE/PE";
+import Gallary from "./Resources/Gallery/Galley";
+import Faqs from "./Resources/Faqs/Faqs";
 
 function App() {
 
@@ -35,7 +37,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ResponsiveNavbar className="RNV"/>
+      <ResponsiveNavbar/>
       <Routes>
         <Route path="*" exact element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -63,6 +65,10 @@ function App() {
         <Route path="Food5" element={<Food5 />} />
 
         <Route path="/products/PE" element={<PE />} />
+
+        <Route path="/rsc/Gallery" element={<Gallary />} />
+
+        <Route path="/rsc/Faqs" element={<Faqs />} />
       </Routes>
       <Footer />
       <div className="Whatsapp">

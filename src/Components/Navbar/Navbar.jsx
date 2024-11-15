@@ -67,9 +67,9 @@ export default function ResponsiveNavbar() {
                   <NavDropdown.Item as={Link} to="/products/PE" onClick={handleNavLinkClick}>PE Coated Paper</NavDropdown.Item>
                 </NavDropdown>
                 <NavDropdown title="Resources" id="collasible-nav-dropdown" className="hover-dropdown nav-link-hover">
-                  <NavDropdown.Item as={Link} to="/products/action" onClick={handleNavLinkClick}>Gallery</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/products/another-action" onClick={handleNavLinkClick}>Quality Assurance</NavDropdown.Item>
-                  <NavDropdown.Item as={Link} to="/products/something-else" onClick={handleNavLinkClick}>Faqs</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/rsc/Gallery" onClick={handleNavLinkClick}>Gallery</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/rsc/QA" onClick={handleNavLinkClick}>Quality Assurance</NavDropdown.Item>
+                  <NavDropdown.Item as={Link} to="/rsc/Faqs" onClick={handleNavLinkClick}>FAQs</NavDropdown.Item>
                 </NavDropdown>
                 <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.2 }}>
                   <Nav.Link as={Link} to="/contact" className="nav-link-hover" onClick={handleNavLinkClick}>Contact Us</Nav.Link>

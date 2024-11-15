@@ -1,0 +1,18 @@
+.Glr-hd h1{
+    font-size: 80px;
+    font-weight: bolder;
+}
+.glr-img {
+    width: 100%;
+    margin-top: 15px;
+    margin-right: 100px;
+    padding: 10px; /* Add padding to make the content inside have space from the border */
+    background: linear-gradient(to bottom right, rgb(232, 115, 12), rgb(33, 135, 225)); /* Gradient from red to blue */
+    border-radius: 50px; /* Round corners */
+    background-clip: border-box; 
+}
+
+.glr-img img{
+    width: 100%;
+    border-radius: 50px;
+}
