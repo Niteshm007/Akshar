@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import ResponsiveNavbar from "./components/Navbar/Navbar";
 import Home from "./Components/Home/Home"; // Your Home component
@@ -36,7 +36,7 @@ function App() {
   };
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <ResponsiveNavbar/>
       <Routes>
         <Route path="*" exact element={<Home />} />
@@ -88,7 +88,7 @@ function App() {
           <img src={Top} className="img-fluid" alt="Scroll to top" />
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
