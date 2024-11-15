@@ -37,7 +37,7 @@ function App() {
     <BrowserRouter>
       <ResponsiveNavbar className="RNV"/>
       <Routes>
-        {/* <Route path="*" exact element={<Home />} /> */}
+        <Route path="*" exact element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
