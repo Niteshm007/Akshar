@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
 import "./Ply.scss";
 import Plyimg from "../../assets/Ply .png";
 import FourPly from "../../assets/4Ply.png";
@@ -10,11 +11,62 @@ export default function Ply() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  // Variants for content animations
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1, ease: 'easeInOut' } },
+  };
+
+  const leftContentVariants = {
+    hidden: { x: '-100vw', opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeInOut' } },
+  };
+
+  const rightContentVariants = {
+    hidden: { x: '100vw', opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeInOut' } },
+  };
+
+  const topContentVariants = {
+    hidden: { y: '-100vh', opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 1, ease: 'easeInOut' } },
+  };
+
+  // Card animation with overlapping sliding effect
+  const cardVariants = {
+    hidden: { opacity: 0, x: '-100vw' },
+    visible: (index) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay: index * 0.3,  // Stagger the cards' animations
+        duration: 0.8,
+        ease: 'easeOut',
+      },
+    }),
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: 'easeInOut' } },
+  };
+
   return (
     <div className="Ply container m-t m-tb">
-      <div className="row">
+      {/* Top content section */}
+      <motion.div
+        className="row"
+        variants={topContentVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {/* Left Content */}
-        <div className="col-md-6">
+        <motion.div
+          className="col-md-6"
+          variants={leftContentVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="brf">
             <h1 align="center">
               Brief About <br /> <b> Ply Laminated Foil </b>
@@ -44,20 +96,37 @@ export default function Ply() {
               efficiency.
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Right Content */}
-        <div className="col-md-6 justify-content-center align-items-center">
+        <motion.div
+          className="col-md-6 justify-content-center align-items-center"
+          variants={rightContentVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="brf-img">
             <img src={Plyimg} alt="" className="img-fluid" />
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
-      <div className="row">
+      {/* Product Types - Cards Section */}
+      <motion.div
+        className="row"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className="product-typ row m-t" align="center">
           {/* First Card */}
-          <div className="col-md-4">
+          <motion.div
+            className="col-md-4"
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0} // Pass index for stagger effect
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={Plyimg} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -72,28 +141,40 @@ export default function Ply() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Second Card */}
-          <div className="col-md-4">
+          <motion.div
+            className="col-md-4"
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            custom={1} // Pass index for stagger effect
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={FourPly} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
                 <h4>Four Ply Laminate for Packaging</h4>
                 <p className="card-text">
-                Chemical Research expertise in producing and manipulating chemicals to energy properties.
+                  Chemical Research expertise in producing and manipulating chemicals to energy properties.
                 </p>
                 <div className="plink">
-                <Link to="/FourPly">
+                  <Link to="/FourPly">
                     <a href=""><p>Read More</p></a>
                   </Link>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Third Card */}
-          <div className="col-md-4">
+          <motion.div
+            className="col-md-4"
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            custom={2} // Pass index for stagger effect
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={MultiPly} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -102,15 +183,15 @@ export default function Ply() {
                   Materials Engineering should include scientific and engineering strength relationships of materials.
                 </p>
                 <div className="plink">
-                <Link to="/MultiPly">
+                  <Link to="/MultiPly">
                     <a href=""><p>Read More</p></a>
                   </Link>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

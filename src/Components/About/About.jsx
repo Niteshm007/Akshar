@@ -4,6 +4,7 @@ import AboutImg from '../../assets/About.png';
 import AbWho from './AbWho/AbWho';
 import Skills from './Skills/Skills';
 import OCompany from './OCompany/OCompany';
+import { motion } from 'framer-motion';
 
 export default function About() {
   useEffect(() => {
@@ -12,17 +13,53 @@ export default function About() {
   }, []);
 
   return (
-    <div className='About Ovr-hd m-tb'>
-      <div className="row">
+    <div className="About Ovr-hd m-tb">
+      {/* Animation for the whole About section */}
+      <motion.div
+        className="row"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="col-ms-12">
-          <div className="about-img">
-            <img src={AboutImg} alt="About Us" className='img-fluid' />
-          </div>
+          {/* Animated About Image */}
+          <motion.div
+            className="about-img"
+            initial={{ opacity: 0, x: -100 }} // Start off-screen from the left
+            animate={{ opacity: 1, x: 0 }}    // Slide to its natural position
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <img src={AboutImg} alt="About Us" className="img-fluid" />
+          </motion.div>
         </div>
-      </div>
-      <AbWho />
-      <Skills />
-      <OCompany />
+      </motion.div>
+
+      {/* Animated AbWho Section */}
+      <motion.div
+        initial={{ opacity: 0, x: -200 }} // Start off-screen from the left
+        animate={{ opacity: 1, x: 0 }}     // Slide to its natural position
+        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
+      >
+        <AbWho />
+      </motion.div>
+
+      {/* Animated Skills Section */}
+      <motion.div
+        initial={{ opacity: 0, x: 200 }}  // Start off-screen from the right
+        animate={{ opacity: 1, x: 0 }}     // Slide to its natural position
+        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+      >
+        <Skills />
+      </motion.div>
+
+      {/* Animated OCompany Section */}
+      <motion.div
+        initial={{ opacity: 0, x: -200 }} // Start off-screen from the left
+        animate={{ opacity: 1, x: 0 }}     // Slide to its natural position
+        transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
+      >
+        <OCompany />
+      </motion.div>
     </div>
   );
 }
