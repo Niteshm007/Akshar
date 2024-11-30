@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import './About.scss';
-import AboutImg from '../../assets/About.png';
-import AbWho from './AbWho/AbWho';
-import Skills from './Skills/Skills';
-import OCompany from './OCompany/OCompany';
-import { motion } from 'framer-motion';
+import React, { useEffect } from "react";
+import "./About.scss";
+import AboutImg from "../../assets/About.png";
+import AbWho from "./AbWho/AbWho";
+import Skills from "./Skills/Skills";
+import OCompany from "./OCompany/OCompany";
+import { motion } from "framer-motion";
 
 export default function About() {
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function About() {
           <motion.div
             className="about-img"
             initial={{ opacity: 0, x: -100 }} // Start off-screen from the left
-            animate={{ opacity: 1, x: 0 }}    // Slide to its natural position
+            animate={{ opacity: 1, x: 0 }} // Slide to its natural position
             transition={{ duration: 1, ease: "easeOut" }}
           >
             <img src={AboutImg} alt="About Us" className="img-fluid" />
@@ -37,25 +37,20 @@ export default function About() {
       {/* Animated AbWho Section */}
       <motion.div
         initial={{ opacity: 0, x: -200 }} // Start off-screen from the left
-        animate={{ opacity: 1, x: 0 }}     // Slide to its natural position
+        animate={{ opacity: 1, x: 0 }} // Slide to its natural position
         transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
       >
         <AbWho />
       </motion.div>
 
       {/* Animated Skills Section */}
-      <motion.div
-        initial={{ opacity: 0, x: 200 }}  // Start off-screen from the right
-        animate={{ opacity: 1, x: 0 }}     // Slide to its natural position
-        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
-      >
-        <Skills />
-      </motion.div>
+
+      <Skills />
 
       {/* Animated OCompany Section */}
       <motion.div
         initial={{ opacity: 0, x: -200 }} // Start off-screen from the left
-        animate={{ opacity: 1, x: 0 }}     // Slide to its natural position
+        animate={{ opacity: 1, x: 0 }} // Slide to its natural position
         transition={{ duration: 1, delay: 0.6, ease: "easeOut" }}
       >
         <OCompany />

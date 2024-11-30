@@ -38,14 +38,16 @@ export default function Insulation() {
 
                   <div className="car-btn row caras-sm">
                     <div className="col-auto">
-                      <Link to="/about">
+                      <Link to="/products/Insulation">
                         <button className="caras-btn">Learn More</button>
                       </Link>
                     </div>
                     <div className="col-auto">
+                    <Link to="/contact">
                       <button className="caras-btn">
                         Send a Request
                       </button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>

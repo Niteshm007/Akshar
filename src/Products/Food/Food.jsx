@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 import "./Food.scss";
 import FoodImg from "../../assets/FoodImg.png";
 import PFL from "../../assets/PFL.png";
@@ -13,11 +14,28 @@ export default function Food() {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+
+  // Define motion variants for animation
+  const slideInFromLeft = {
+    hidden: { opacity: 0, x: -200 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  };
+
+  const slideInFromRight = {
+    hidden: { opacity: 0, x: 200 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.8 } },
+  };
+
   return (
     <div className="Food container m-t m-tb">
       <div className="row">
-        {/* Left Content */}
-        <div className="col-md-6">
+        {/* Left Content with animation */}
+        <motion.div
+          className="col-md-6"
+          variants={slideInFromLeft}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="brf">
             <h1 align="center">
               Brief About <br /> <b> Food & Baverages Industries </b>
@@ -47,20 +65,30 @@ export default function Food() {
               convenience.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Content */}
-        <div className="col-md-6 justify-content-center align-items-center">
+        {/* Right Content with image animation */}
+        <motion.div
+          className="col-md-6 justify-content-center align-items-center"
+          variants={slideInFromRight}
+          initial="hidden"
+          animate="visible"
+        >
           <div className="brf-img">
             <img src={FoodImg} alt="" className="img-fluid" />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="row">
         <div className="product-typ row m-t" align="center">
-          {/* First Card */}
-          <div className="col-md-4">
+          {/* First Card with animation */}
+          <motion.div
+            className="col-md-4"
+            variants={slideInFromLeft}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={PFL} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -78,10 +106,15 @@ export default function Food() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Second Card */}
-          <div className="col-md-4">
+          {/* Second Card with animation */}
+          <motion.div
+            className="col-md-4"
+            variants={slideInFromLeft}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={GPM} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -99,10 +132,15 @@ export default function Food() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Third Card */}
-          <div className="col-md-4">
+          {/* Third Card with animation */}
+          <motion.div
+            className="col-md-4"
+            variants={slideInFromLeft}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={UVC} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -120,13 +158,19 @@ export default function Food() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
+
       <div className="row">
         <div className="product-typ row m-t" align="center">
-          {/* Fourth Card */}
-          <div className="col-md-4">
+          {/* Fourth Card with animation */}
+          <motion.div
+            className="col-md-4"
+            variants={slideInFromLeft}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={ICW} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -144,10 +188,15 @@ export default function Food() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Fifth Card */}
-          <div className="col-md-4">
+          {/* Fifth Card with animation */}
+          <motion.div
+            className="col-md-4"
+            variants={slideInFromLeft}
+            initial="hidden"
+            animate="visible"
+          >
             <div className="card" style={{ width: "20rem" }}>
               <img src={FPM} className="card-img-top" alt="Card image cap" />
               <div className="card-body">
@@ -165,7 +214,7 @@ export default function Food() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

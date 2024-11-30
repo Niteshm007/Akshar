@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';  // Importing framer-motion
 import './Carasoul.scss';
 import Paper from './PE Coated Paper/Paper';
 import Insulation from './Insulation Material/Insulation';
+import CMetalized from './CMetalized/CMetalized';
+import CBarrier from './CBarrier/CBarrier';
+import CFood from './CFood/CFood';
 
 export default function Carasoul() {
   // Track the active index of the carousel to trigger animations
@@ -32,9 +35,9 @@ export default function Carasoul() {
   // Handling the carousel slide event to track active index
   const handleSlide = (direction) => {
     if (direction === 'next') {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % 2); // Assuming 2 items
+      setActiveIndex((prevIndex) => (prevIndex + 1) % 5); // Now we have 5 items
     } else {
-      setActiveIndex((prevIndex) => (prevIndex - 1 + 2) % 2);
+      setActiveIndex((prevIndex) => (prevIndex - 1 + 5) % 5); // Adjusting for the 5 items
     }
   };
 
@@ -60,14 +63,50 @@ export default function Carasoul() {
 
         {/* Insulation Component */}
         <motion.div
-          className={`carousel-item ${activeIndex === 1 ? 'active' : ''}`} // Mark active item
-          key={activeIndex}  // This ensures the component re-mounts on each change
+          className={`carousel-item ${activeIndex === 1 ? 'active' : ''}`}
+          key={activeIndex}
           variants={itemVariants}
           initial="hidden"
           animate="visible"
           exit="exit"
         >
           <Insulation />
+        </motion.div>
+
+        {/* Component 3 */}
+        <motion.div
+          className={`carousel-item ${activeIndex === 2 ? 'active' : ''}`}
+          key={activeIndex}
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <CMetalized />
+        </motion.div>
+
+        {/* Component 4 */}
+        <motion.div
+          className={`carousel-item ${activeIndex === 3 ? 'active' : ''}`}
+          key={activeIndex}
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <CBarrier />
+        </motion.div>
+
+        {/* Component 5 */}
+        <motion.div
+          className={`carousel-item ${activeIndex === 4 ? 'active' : ''}`}
+          key={activeIndex}
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          exit="exit"
+        >
+          <CFood />
         </motion.div>
       </div>
 

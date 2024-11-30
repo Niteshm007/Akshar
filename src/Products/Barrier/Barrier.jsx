@@ -1,19 +1,26 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 import "./Barrier.scss";
 import BarrierImg from '../../assets/Barrier.png';
 import ScrLm from "../../assets/SctLm.png";
 import { Link } from "react-router-dom";
 
 export default function Barrier() {
-    useEffect(() => {
-        // Smoothly scroll to the top of the page
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }, []);
+  useEffect(() => {
+    // Smoothly scroll to the top of the page
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className="Barrier container m-t m-tb">
       <div className="row">
-        {/* Left Content */}
-        <div className="col-md-6">
+        {/* Left Content with sliding animation */}
+        <motion.div 
+          className="col-md-6" 
+          initial={{ x: '-100vw', opacity: 0 }} // Start off-screen to the left
+          animate={{ x: 0, opacity: 1 }} // Slide in and fade in
+          transition={{ type: 'spring', stiffness: 100, damping: 25 }} // Add smooth spring effect
+        >
           <div className="brf">
             <h1 align="center">
               Brief About <br /> <b> Barrier Film Insulation </b>
@@ -42,20 +49,31 @@ export default function Barrier() {
               be controlled.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Content */}
-        <div className="col-md-6 justify-content-center align-items-center">
+        {/* Right Content with sliding animation */}
+        <motion.div 
+          className="col-md-6 justify-content-center align-items-center" 
+          initial={{ x: '100vw', opacity: 0 }} // Start off-screen to the right
+          animate={{ x: 0, opacity: 1 }} // Slide in and fade in
+          transition={{ type: 'spring', stiffness: 100, damping: 25 }} // Add smooth spring effect
+        >
           <div className="brf-img">
             <img src={BarrierImg} alt="" className="img-fluid" />
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <div className="row">
         <div className="product-typ row m-t" align="center">
           <div className="col-md-12">
-            <div className="card" style={{ width: "20rem" }}>
+            <motion.div
+              className="card"
+              style={{ width: "20rem" }}
+              initial={{ opacity: 0, y: 50 }} // Start slightly below and invisible
+              animate={{ opacity: 1, y: 0 }} // Fade in and move to normal position
+              transition={{ duration: 0.5 }} // Smooth animation for the card
+            >
               <img
                 src={ScrLm}
                 className="card-img-top"
@@ -75,10 +93,8 @@ export default function Barrier() {
                   </Link>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-
-          {/* Third Card */}
         </div>
       </div>
     </div>

@@ -34,11 +34,11 @@ export default function Paper() {
                   variants={textVariants}
                 >
                   <p>Welcome To Foilam Global</p>
-                  <h1>Coated Paper <br />Manufacturer</h1>
+                  <h1>Ply Laminated Foil <br />Manufacturer</h1>
 
                   <div className="car-btn row caras-sm">
                     <div className="col-auto">
-                      <Link to="/about">
+                      <Link to="/products/Ply">
                         <button className="caras-btn">Learn More</button>
                       </Link>
                     </div>
